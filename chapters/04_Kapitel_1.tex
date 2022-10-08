@@ -1,0 +1,31 @@
+% !TEX root = Thesis.tex
+
+\chapter{Kapitel 1 }
+\section{Section 1}
+\blindtext
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=.5\textwidth]{example-image-duck} % takes a random page from the pdf
+\caption{Testcaption}
+\label{fig:ente}
+\end{center}
+\end{figure}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{||c c c c||} 
+ \hline
+ Col1 & Col2 & Col2 & Col3 \\ [0.5ex] 
+ \hline\hline
+ 1 & 6 & 87837 & 787 \\ 
+ 2 & 7 & 78 & 5415 \\
+ 3 & 545 & 778 & 7507 \\
+ 4 & 545 & 18744 & 7560 \\
+ 5 & 88 & 788 & 6344 \\ [1ex] 
+ \hline
+\end{tabular}
+\caption{Table to test captions and labels.}
+\label{table:1}
+\end{table}
+
+Dies ist eine Test-Zitation \cite{texbook} für das Literaturverzeichnis. Bilder und Tabellen werden folgendermaßen referenziert. Das Paket \textit{duckuments} gibt Testbilder mit einer Ente aus, wie in Abbildung \ref{fig:ente} dargestellt. Tabelle \ref{table:1} wird in der selben weise referenziert.

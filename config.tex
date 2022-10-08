@@ -1,0 +1,73 @@
+%%%%%%%%%%%%%
+% Hast du das ReadMe.txt schon gelesen?
+%%%%%%%%%%%%%
+
+% ========= Standard Packages =========
+\usepackage{xkeyval}    % für titelseite 
+\usepackage[headsepline,plainheadsepline,draft=false]{scrlayer-scrpage} % Kopf- und Fußzeile Einstellungen
+\usepackage{svg}
+
+% ========= Dokumentinformationen =========
+% für Metadaten ist hypersetup in Thesis.txt gedacht
+\usepackage[
+	hidelinks           %links nicht umrahmen 
+]{hyperref}
+
+% ========= Spracheinstellungen =========
+\usepackage[utf8]{inputenc}         % encoding input Option 
+\usepackage[T1]{fontenc}            % endcoding output Option 
+\usepackage[ngerman]{babel}         % gewählte Dokumentsprache(n)
+\usepackage{lmodern}                % Schriftart (Latin Modern)
+
+% ========= Datumseinstellungen =========
+\usepackage[ngerman]{datetime}
+
+% ========= Grafiken Pakete =========
+\usepackage{graphicx}               % einbinden von Grafiken bzw. Bildern
+\usepackage{subcaption}             % caption für mehrere subfigures
+
+% ========= Tabellen Pakete =========
+\usepackage{longtable}              % Mehrseitige Tabellen
+\usepackage{tabularx}               % flexiblere Tabellenumgebung
+\usepackage{multirow}               
+\usepackage{multicol}
+
+% ========= sonstige Pakete =========
+\usepackage[justification=centering]{caption}       % erweiterte Mögichkeiten für captions
+\usepackage{abstract}                               % Umgebung für die Kurzfassung /Abstract
+\usepackage[printonlyused,nohyperlinks]{acronym}    % Abkürzungsverzeichnis 
+\usepackage{xcolor}                                 % Farboptionen
+\usepackage[section]{placeins}                      % ermöglicht den Befehls \FloatBarrier
+\usepackage{csquotes}                               % passenden Anführungszeichen für Zitate
+
+% ========= Bibliography =========
+\usepackage[backend=biber,
+            style=ieee,
+            dashed=false,
+            maxcitenames=2,
+            mincitenames=1]{biblatex}
+
+\addbibresource{Literaturverzeichnis.bib}       % Pfad zur .bib Datei
+
+% ========= DEBUG Packages ========
+\usepackage{blindtext}
+\usepackage{duckuments}
+%\usepackage{showframe}% blendet Seitenränder ein
+
+
+% !!! Do not include packages beyond this line !!!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ========= benutzerdefinierte commands =========
+
+%nicht einrücken nach Absatz
+\setlength{\parindent}{0pt}
+\RedeclareSectionCommand[afterindent=false,beforeskip=10pt]{chapter}
+ % neues Datumformat
+\newdateformat{mydateformat}{\monthnamengerman[\THEMONTH] \THEYEAR}
+
+% Dokument Kopf- und Fußzeile
+\clearpairofpagestyles
+\pagestyle{scrheadings}
+\ihead*{\headmark}
+\automark{chapter}
+\ohead*{\pagemark}

@@ -1,0 +1,93 @@
+%%%%%%%%%%%%%
+% Hast du das ReadMe.txt schon gelesen?
+%%%%%%%%%%%%%
+
+\documentclass[
+        paper = a4,                     % DIN A4
+		12pt,						    % Schriftgröße
+        twocolumn = false,              % one-column layout
+        bibliography = totoc,           % Literaturverzeichnis ins Inhaltsverzeichnis
+        listof = totoc,                 % Abbildung- und Tabellenverzeichnis ins Inhaltsverzeichnis
+        index=totoc,                    % Index im Inhaltsverzeichnis
+        parskip=half,     	            % Europäischer Satz: Abstand zwischen Absätzen
+		]{scrreprt}
+
+\input{config}  % Hier werden alle packages geladen und benutzerdefiniert commands deklariert
+\input{chapters/00_titelseite} % Hier wird die Titelseite erstellt
+% Metadaten für die PDF Datei
+\hypersetup{
+    pdftitle    = {Titel},
+    % pdfsubject  = {Um was geht es },
+    pdfauthor   = {Autor bzw. Autoren},
+    pdfkeywords = {Stichwort1, Stichwort2 ...}}
+
+\begin{document}
+%%%%%%%%%%%%%
+% Document settings
+%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%
+% Header
+%%%%%%%%%%%%%
+\TitleMWBW{
+	title={Titel der Arbeit},
+	profA={Dr. Leonard Leakey Hofstadter Ph.D},
+	instituteA={Applied Physics and Materials Science},
+	profB={DI. Howard Joel Wolowitz},
+	instituteB={Mechanical and Civil Engineering},
+	authorFirstname={Manfred},
+	authorLastname={Musterman},
+	authorPreTitle = {Dipl.Ing.},
+	authorPostTitle={BSc},
+	MatrNum={01234567\\ (066 445)}, % Matrikelnummer \\ (Studienkennzahl)
+	location={Wien},
+	date={\mydateformat\today},
+	type={dipl}, % dipl,bac,diss
+	instLogo = {E325} % E+Institutsnummer (working E325)
+	}
+\createTitleMWBW
+
+
+%%%%%%%%%%%%%
+%  Index & Abstract
+%%%%%%%%%%%%%
+
+\input{chapters/01_eidesstattliche} 
+\input{chapters/02_abstract}
+\tableofcontents % Inhaltsverzeichnis
+\thispagestyle{empty} % keine Seitenzahl auf vorheriger Seite (Inhaltsverzeichnis) 
+
+%%%%%%%%%%%%%
+% Chapters
+%%%%%%%%%%%%%
+% Seitennummerierung 
+\pagenumbering{arabic} % Legt die Art der Seitenzählung fest  
+\setcounter{page}{1} % Setzt Seitenzahl auf 1 
+
+\input{chapters/03_abkuerzungsverzeichnis}
+\input{chapters/04_Kapitel_1}
+
+%%%%%%%%%%%%%
+% Verzeichnisse 
+%%%%%%%%%%%%%
+%Tabellen und Bildverzeichnis
+\clearpage
+\begingroup
+\let\clearpage\relax
+\listoffigures  %Bilder
+\pagebreak
+\listoftables %Tabellen 
+\endgroup
+
+%Literaturverzeichnis
+\clearpage
+\thispagestyle{plain}
+\printbibliography
+
+%%%%%%%%%%%%%
+% Apendix
+%%%%%%%%%%%%%
+
+
+\end{document}

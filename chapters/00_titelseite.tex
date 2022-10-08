@@ -1,0 +1,71 @@
+%%%%%%%%%%%%%
+
+
+% Eine Bearbeitung dieser Datei ist nicht erforderlich.
+% Leg nur Hand an, wenn du dir sicher bist.
+
+% Erstelle bestenfalls zuvor ein Backup
+
+%%%%%%%%%%%%%%
+
+\makeatletter
+\define@cmdkey{TitleMWBW}{authorFirstname}[Martha]{}
+\define@cmdkey{TitleMWBW}{authorLastname}[Musterfrau]{}
+\define@cmdkey{TitleMWBW}{authorPreTitle}[Dipl.Ing.]{}
+\define@cmdkey{TitleMWBW}{authorPostTitle}[BSc]{}
+\define@cmdkey{TitleMWBW}{MatrNum}[01234567]{}
+\define@cmdkey{TitleMWBW}{title}[Title]{}
+\define@cmdkey{TitleMWBW}{subtitle}[Subtitle]{}
+\define@cmdkey{TitleMWBW}{instituteA}[Institute]{}
+\define@cmdkey{TitleMWBW}{instituteB}[Institute]{}
+\define@cmdkey{TitleMWBW}{profA}[Professor]{}
+\define@cmdkey{TitleMWBW}{profB}[Professor]{}
+\define@cmdkey{TitleMWBW}{address}[Address]{}
+\define@cmdkey{TitleMWBW}{location}[Location]{}
+\define@cmdkey{TitleMWBW}{date}[Date]{}
+\define@cmdkey{TitleMWBW}{type}[Type of the thesis]{}
+\define@cmdkey{TitleMWBW}{instLogo}[institutelogo]{}
+\newcommand{\TitleMWBW}[1]{\setkeys{TitleMWBW}{#1}}
+
+
+\newcommand*{\createTitleMWBW}{
+\begingroup
+\begin{titlepage}
+\centering
+
+\begin{minipage}{0.40\linewidth}
+\begin{flushleft}
+\includegraphics[height=2.25cm]{img/logos/tuwien.pdf}
+\end{flushleft}
+\end{minipage}%
+\hspace{\fill}%
+\begin{minipage}{0.55\linewidth}
+ \begin{flushright}
+ \includegraphics[height=2.25cm]{img/logos/\cmdKV@TitleMWBW@instLogo.pdf}
+ \end{flushright}
+\end{minipage}%
+
+\vspace{3cm}
+% {\cmdKV@TitleMWBW@instLogo \par}
+{\LARGE{\textbf{\IfStrEqCase{\cmdKV@TitleMWBW@type}{%
+				{bac}{Bachelorarbeit}
+				{dipl}{Diplomarbeit}
+				{diss}{Dissertation}}[\cmdKV@TitleMWBW@type]}}\par}
+\vspace{1cm}
+{\LARGE{\cmdKV@TitleMWBW@title}\par}
+\vspace{1.5cm}
+{\textbf{\IfStrEqCase{\cmdKV@TitleMWBW@type}{
+                {bac}{ausgeführt zum Zwecke der Erlangung des akademischen Grades eines Bachelor of Science unter der Leitung von}
+                {dipl}{ausgeführt zum Zwecke der Erlangung des akademischen Grades eines Diplom-Ingenieurs (Dipl.-Ing. oder DI) unter der Leitung von}
+                {diss}{ausgeführt zum Zwecke der Erlangung des akademischen Grades eines Doktors der technischen Wissenschaften (Dr.techn) unter der Leitung von}}[\cmdKV@TitleMWBW@type]
+                }\par}
+\vspace{0.5cm}
+{\large{\textbf{\cmdKV@TitleMWBW@profA}}\\(\cmdKV@TitleMWBW@instituteA) \par}
+\vspace{0.5cm}
+{sowie unter der Betreuung von \\ \large{\textbf{\cmdKV@TitleMWBW@profB}}\\(\cmdKV@TitleMWBW@instituteB)\par}
+\vspace{0.5cm}
+{eingereicht an der Technischen Universität Wien\\ \large{\textbf{Fakultät für Maschinenwesen und Betriebswissenschaften}}\par}
+\vspace{0.5cm}
+{\large{\textbf{\cmdKV@TitleMWBW@authorPreTitle \ \cmdKV@TitleMWBW@authorFirstname \ \cmdKV@TitleMWBW@authorLastname , \cmdKV@TitleMWBW@authorPostTitle }} \\	\cmdKV@TitleMWBW@MatrNum \\ \par}
+\end{titlepage}
+}
